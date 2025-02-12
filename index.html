@@ -1,80 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple To-Do List</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        h1 {
-            text-align: center;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            background: #f9f9f9;
-            margin: 5px 0;
-            padding: 10px;
-            border: 1px solid #ddd;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        li.completed {
-            text-decoration: line-through;
-            color: #888;
-        }
-        button {
-            background: #ff6347;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #ff4500;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Общий список задач</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>My To-Do List</h1>
-    <input type="text" id="taskInput" placeholder="Add a new task..." />
-    <button onclick="addTask()">Add</button>
-    <ul id="taskList">
-        <!-- Tasks will appear here -->
-    </ul>
-
-    <script>
-        function addTask() {
-            const taskInput = document.getElementById('taskInput');
-            const taskText = taskInput.value.trim();
-            if (taskText === '') {
-                alert('Please enter a task.');
-                return;
-            }
-
-            const li = document.createElement('li');
-            li.textContent = taskText;
-
-            const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Delete';
-            deleteButton.onclick = function() {
-                li.remove();
-            };
-
-            li.appendChild(deleteButton);
-            li.onclick = function() {
-                li.classList.toggle('completed');
-            };
-
-            document.getElementById('taskList').appendChild(li);
-            taskInput.value = '';
-        }
-    </script>
+  <h1>Общий список задач</h1>
+  <form id="task-form">
+    <input type="text" id="task-input" placeholder="Введите новую задачу" required>
+    <button type="submit">Добавить задачу</button>
+  </form>
+  <ul id="task-list"></ul>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
